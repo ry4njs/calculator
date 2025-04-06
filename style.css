@@ -17,7 +17,7 @@ body {
 }
 
 .display {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     text-align: right;
     padding: 20px;
     margin-bottom: 20px;
@@ -44,11 +44,9 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.button-number:hover {
+.button-number:hover, .button-operator:hover, #equals:hover, #clear:hover {
     background-color: #ddd;
 }
-
-
 
 button:active {
     transform: scale(0.98);

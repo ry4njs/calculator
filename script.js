@@ -28,7 +28,7 @@ function multiply(num1, num2) {
 // divide two numbers
 function divide(num1, num2) {
     if (num2 == 0) {
-        return "Error: Cannot dive by zero";
+        return "Error: Cannot divide by zero";
     }
     return num1 / num2;
 }
@@ -83,7 +83,13 @@ operatorButtons.forEach(button => {
         else if (currentInput !== "") {
             secondNum = parseFloat(currentInput);
             const result = operate(operator, firstNum, secondNum);
-            currentInput = result.toString();
+            if (result % 1 == 0) {
+                currentInput = result.toString();
+            }
+            else {
+                currentInput = (typeof result === 'string' ? result : 
+                                result.toFixed(8)).toString();
+            }
             updateDisplay();
             firstNum = parseFloat(currentInput);
             operator = button.textContent;
@@ -97,7 +103,13 @@ equalsButton.addEventListener("click", () => {
     if (firstNum !== null && currentInput !== "") {
         secondNum = parseFloat(currentInput);
         const result = operate(operator, firstNum, secondNum);
-        currentInput = result.toString();
+        if (result % 1 == 0) {
+            currentInput = result.toString();
+        }
+        else {
+            currentInput = (typeof result === 'string' ? result : 
+                            result.toFixed(8)).toString();
+        }
         updateDisplay();
         firstNum = parseFloat(currentInput);
         secondNum = null;
