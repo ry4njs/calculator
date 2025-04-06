@@ -35,3 +35,20 @@ function operate(operator, num1, num2) {
             return "Error: unknown operator";
     }
 }
+
+let currentInput = "";
+const display = document.querySelector(".display");
+const numberButtons = document.querySelectorAll(".button-number");
+
+function updateDisplay() {
+    display.textContent = currentInput || '0';
+}
+
+numberButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        currentInput += button.textContent;
+        updateDisplay();
+    });
+});
+
+updateDisplay();
